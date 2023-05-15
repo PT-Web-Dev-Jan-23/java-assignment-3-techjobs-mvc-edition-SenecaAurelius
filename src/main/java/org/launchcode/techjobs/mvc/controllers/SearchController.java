@@ -25,6 +25,7 @@ public class SearchController {
 
     //private static List<String> events = new ArrayList<>();
     private static List<Job> jobs;
+    private static List<Job> testTrick;
 
     @GetMapping(value = "")
     public String search(Model model) {
@@ -37,9 +38,12 @@ public class SearchController {
     @PostMapping(value="results")
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm){
 //        model.addAttribute("jobs", jobs);
-
-        if(searchType.equals("all") || searchType.equals("")){
-            jobs = (JobData.findAll());
+        testTrick = JobData.findAll();
+        if(searchType.equals("all") && searchTerm.equals("")){
+            jobs = JobData.findAll();
+        }
+        else if (searchType.equals("")){
+            jobs = JobData.findByValue(searchTerm);
         }
         else{
             jobs = (JobData.findByColumnAndValue(searchType, searchTerm));

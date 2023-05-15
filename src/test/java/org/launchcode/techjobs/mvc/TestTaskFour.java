@@ -83,6 +83,7 @@ public class TestTaskFour {
                 .andExpect(xpath("//table[contains(@class, 'job-listing')][3]").exists())
                 .andExpect(xpath("//table[contains(@class, 'job-listing')][4]").exists())
                 .andExpect(xpath("//table[contains(@class, 'job-listing')][5]").doesNotExist());
+        System.out.println(xpath("//table[contains(@class, 'job-listing')][5]"));
     }
 
     /*
@@ -98,6 +99,7 @@ public class TestTaskFour {
                 .andExpect(xpath("//table[contains(@class, 'job-listing')][2]").exists())
                 .andExpect(xpath("//table[contains(@class, 'job-listing')][3]").exists())
                 .andExpect(xpath("//table[contains(@class, 'job-listing')][4]").doesNotExist());
+
     }
 
 }
